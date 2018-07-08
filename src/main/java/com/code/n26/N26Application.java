@@ -8,6 +8,5 @@ public class N26Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(N26Application.class, args);
-		System.out.println(System.currentTimeMillis());
 	}
 }
