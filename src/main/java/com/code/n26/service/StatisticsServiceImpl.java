@@ -43,8 +43,13 @@ public class StatisticsServiceImpl implements StatisticsService {
 	@Override
 	public boolean addTransaction(Transaction transaction) {
 		
-		transactions.add(transaction);
-		return isTransactionOlderThanSixtySeconds(transaction, Instant.now());
+		boolean isTransactionOlderThanSixtySeconds = isTransactionOlderThanSixtySeconds(transaction, Instant.now());
+		
+		if(!isTransactionOlderThanSixtySeconds) {
+			transactions.add(transaction);
+		}
+		
+		return isTransactionOlderThanSixtySeconds;
 		
 	}
 
